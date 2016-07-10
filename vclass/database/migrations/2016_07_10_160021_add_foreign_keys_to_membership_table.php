@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableTask extends Migration
+class AddForeignKeysToMembershipTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,10 @@ class CreateTableTask extends Migration
      */
     public function up()
     {
-        Schema::create('task', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('title');
-            $table->string('subtitle');
-            $table->text('description');
-            $table->timestamps();
+        //
+
+        Schema::table('access', function (Blueprint $table) {
+            $table->foreign('membership_id')->references('id')->on('membership');
         });
     }
 
@@ -28,6 +26,6 @@ class CreateTableTask extends Migration
      */
     public function down()
     {
-        Schena::drop('task');
+        //
     }
 }

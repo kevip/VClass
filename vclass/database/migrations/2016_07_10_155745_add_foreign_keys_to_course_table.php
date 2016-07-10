@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableTask extends Migration
+class AddForeignKeysToCourseTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,9 @@ class CreateTableTask extends Migration
      */
     public function up()
     {
-        Schema::create('task', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('title');
-            $table->string('subtitle');
-            $table->text('description');
-            $table->timestamps();
+        Schema::table('course', function (Blueprint $table) {
+            $table->foreign('category_id')->references('id')->on('category');
+
         });
     }
 
@@ -28,6 +25,6 @@ class CreateTableTask extends Migration
      */
     public function down()
     {
-        Schena::drop('task');
+        //
     }
 }

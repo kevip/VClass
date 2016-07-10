@@ -15,6 +15,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'api'], function () {
-    Route::resource('course', 'API\CoursesController');
+
+
+Route::group(['middleware' => ['cors']], function () {
+    Route::group(['prefix' => 'api'], function () {
+        Route::resource('courses', 'API\CoursesController');
+        Route::resource('lessons', 'API\LessonsController');
+        Route::resource('students', 'API\StudentsController');
+        Route::resource('teachers', 'API\TeachersController');
+        Route::resource('tasks', 'API\TasksController');
+        Route::resource('tasks', 'API\TasksController');
+
+    });
 });
