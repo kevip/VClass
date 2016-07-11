@@ -16,7 +16,7 @@ class CreateTableCourse extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('code');
-            $table->string('image');
+            $table->text('image');
             $table->integer('teacher_id')->unsigned();
             $table->integer('category_id')->unsigned();
             $table->foreign('teacher_id')->references('id')->on('teacher');

@@ -14,7 +14,7 @@ class CreateTableSending extends Migration
     {
         Schema::create('sending', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('sending_file');
+            $table->text('sending_file');
             $table->date('sending_date');
             $table->integer('lesson_id')->unsigned();
             $table->integer('task_id')->unsigned();
