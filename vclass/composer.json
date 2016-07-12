@@ -8,7 +8,8 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
         "barryvdh/laravel-cors": "^0.8.1",
-        "fzaninotto/faker": "^1.6"
+        "fzaninotto/faker": "^1.6",
+        "tymon/jwt-auth": "0.5.*"
     },
     "require-dev": {
         "mockery/mockery": "0.9.*",

@@ -25,6 +25,7 @@ Route::group(['middleware' => ['cors']], function () {
         Route::resource('teachers', 'API\TeachersController');
         Route::resource('tasks', 'API\TasksController');
         Route::resource('tasks', 'API\TasksController');
+        Route::post('auth_login', 'API\ApiAuthController@userAuth');
 
     });
 });
