@@ -17,12 +17,11 @@ class CoursesController extends Controller
 
     public function show($id){
 
-        return Course::find($id);
+        return Course::with(['lessons.tasks','teacher'])->find($id);        
     }
 
     public function store(Request $request){
-
-        //dd($request);
+        
         $course = Course::create($request->all());
 
         return $course;

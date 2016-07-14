@@ -13,4 +13,8 @@ class Task extends Model
         'description',
         'created_at',
         'updated_at'];
+
+    public function lesson(){
+    	return $this->belongsTo(Lesson::class);
+    }
 }

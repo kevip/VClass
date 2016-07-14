@@ -14,6 +14,6 @@ class LessonsController extends Controller
         return Lesson::all();
     }
     public function show($id){
-        return Lesson::find($id);
+        return Lesson::with('course.teacher.user')->find($id);
     }
 }

@@ -17,6 +17,7 @@ class CreateTableLesson extends Migration
             $table->string('subject');
             $table->string('video');
             $table->text('description');
+            $table->integer('weekend')->unsigned();
             $table->integer('course_id')->unsigned();
             $table->foreign('course_id')->references('id')->on('course');
             $table->timestamps();

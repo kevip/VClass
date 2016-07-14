@@ -23,6 +23,13 @@ class Course extends Model
         \Storage::disk('local')->put($name, \File::get($path));
     }
 
+    public function lessons(){
+        return $this->hasMany(Lesson::class);
+    }
+
+    public function teacher(){
+        return $this->belongsTo(Teacher::class);
+    }
     /*public function setNameAttribute($value) {
         $this->attributes['name'] = \Hash::make($value);
     }*/

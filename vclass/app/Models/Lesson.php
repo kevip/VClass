@@ -13,5 +13,14 @@ class Lesson extends Model
         'description',
         'course_id',
         'created_at',
+        'weekend',
         'updated_at'];
+
+    public function tasks(){
+    	return $this->hasMany(Task::class);
+    }
+
+    public function course(){
+        return $this->belongsTo(Course::class);
+    }
 }

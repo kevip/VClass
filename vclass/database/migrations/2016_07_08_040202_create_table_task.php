@@ -17,6 +17,7 @@ class CreateTableTask extends Migration
             $table->string('title');
             $table->string('subtitle');
             $table->text('description');
+            $table->integer('lesson_id')->unsigned();
             $table->timestamps();
         });
     }

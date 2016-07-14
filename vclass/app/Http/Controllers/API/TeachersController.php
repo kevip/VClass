@@ -11,9 +11,9 @@ use App\Http\Controllers\Controller;
 class TeachersController extends Controller
 {
     public function index () {
-        return Teacher::all();
+        return Teacher::with(['courses','user'])->get();
     }
     public function show($id){
-        return Teacher::find($id);
+        return Teacher::with(['courses','user'])->find($id);
     }
 }

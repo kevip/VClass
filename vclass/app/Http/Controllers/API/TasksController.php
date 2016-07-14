@@ -14,6 +14,6 @@ class TasksController extends Controller
         return Task::all();
     }
     public function show($id){
-        return Task::find($id);
+        return Task::with('lesson')->find($id);
     }
 }
