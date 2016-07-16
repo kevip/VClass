@@ -28,8 +28,12 @@ class CoursesController extends Controller
     }
     public function update (Request $request, $id){
 
-        $c = Course::create($request->all());
+        $course = Course::find($id);
+                
+        $course->fill($request->all());
+        $course->save();
+        //$c = Course::create($request->all());
 
-        return $c;
+        return $course;
     }
 }

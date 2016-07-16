@@ -21,7 +21,7 @@ class SendingController extends Controller
         return Sending::find($id);        
     }
 
-    public function store(Request $request){
+    public function store(Request $request  ){
         return $request->get('sending_file');
         $sending = Sending::create($request->all());
 
