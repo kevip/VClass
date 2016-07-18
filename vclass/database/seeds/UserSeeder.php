@@ -16,17 +16,17 @@ class UserSeeder extends Seeder
             [
                 'name'     => 'kevip',
                 'email'    => 'kevip@vclass.com',
-                'password' => \Hash::make('kevip')
+                'password' => 'kevip'
             ],
             [
                 'name'     => 'larry',
                 'email'    => 'larry@vclass.com',
-                'password' => \Hash::make('larry')
+                'password' => 'larry'
             ],
             [
                 'name'     => 'luis_carepalo',
                 'email'    => 'luis_carepalo@vclass.com',
-                'password' => \Hash::make('luis_carepalo')
+                'password' => 'luis_carepalo'
             ],
         ];
 

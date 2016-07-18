@@ -18,6 +18,7 @@ class CreateTableCourse extends Migration
             $table->text('description');
             $table->string('code');
             $table->text('image');
+            $table->enum('status', array('active', 'closed'))->default('active');
             $table->integer('teacher_id')->unsigned();
             $table->integer('category_id')->unsigned();
             $table->foreign('teacher_id')->references('id')->on('teacher');

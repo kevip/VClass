@@ -2,29 +2,29 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Models\Lesson;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 
-class LessonsController extends Controller
+class CategoriesController extends Controller
 {
     public function index () {
-        return Lesson::all();
+        return Category::all();
     }
     public function show($id){
-        return Lesson::with(['course.teacher.user','tasks'])->find($id);
+        return Category::find($id);
     }
 
     public function store(Request $request){
         
-        $lesson = Lesson::create($request->all());
+        $category = Category::create($request->all());
 
-        return $lesson;
+        return $category;
     }
     public function update (Request $request, $id){        
-        $lesson = Lesson::find($id);
+    /*    $lesson = Lesson::find($id);
                 
 
     	$tasks = $request->get('tasks');
@@ -37,6 +37,6 @@ class LessonsController extends Controller
 
         $lesson->fill($request->all());
         $lesson->save();        
-        return $lesson;
+        return $lesson;*/
     }
 }

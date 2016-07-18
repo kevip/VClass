@@ -16,8 +16,8 @@ class CoursesController extends Controller
     }
 
     public function show($id){
-
-        return Course::with(['lessons.tasks','teacher'])->find($id);        
+        
+        return Course::with(['lessons.tasks','teacher','category'])->find($id);        
     }
 
     public function store(Request $request){
@@ -26,13 +26,11 @@ class CoursesController extends Controller
 
         return $course;
     }
-    public function update (Request $request, $id){
-
+    public function update (Request $request, $id){        
         $course = Course::find($id);
                 
         $course->fill($request->all());
-        $course->save();
-        //$c = Course::create($request->all());
+        $course->save();        
 
         return $course;
     }

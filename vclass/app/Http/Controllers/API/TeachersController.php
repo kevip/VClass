@@ -14,6 +14,6 @@ class TeachersController extends Controller
         return Teacher::with(['courses','user'])->get();
     }
     public function show($id){
-        return Teacher::with(['courses','user'])->find($id);
+        return Teacher::with(['courses.category','user'])->find($id);
     }
 }

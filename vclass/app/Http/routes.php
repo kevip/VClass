@@ -18,31 +18,39 @@ Route::get('/', function () {
 
 
 Route::group(['middleware' => ['cors']], function () {
+    Route::post('auth_login', 'API\ApiAuthController@userAuth');
     Route::group(['prefix' => 'api'], function () {
         Route::resource('courses', 'API\CoursesController');
-        Route::post('course/update/{id}','API\CoursesController@update');
-        Route::post('course/delete/{id}','API\CoursesController@delete');
-        //Route::put('courses/{id}','API\CoursesController@update');
         Route::resource('lessons', 'API\LessonsController');
         Route::resource('students', 'API\StudentsController');
         Route::resource('teachers', 'API\TeachersController');
         Route::resource('tasks', 'API\TasksController');
         Route::resource('sendings', 'API\SendingController');
-        Route::post('auth_login', 'API\ApiAuthController@userAuth');
+        Route::resource('users', 'API\UsersController');
+        Route::resource('categories', 'API\CategoriesController');
 
+
+        Route::group(['prefix'=> 'course'],function(){
+            Route::post('update/{id}','API\CoursesController@update');
+            Route::post('delete/{id}','API\CoursesController@delete');
+        });
         Route::group(['prefix'=> 'lesson'],function(){
-            Route::post('edit/{id}', 'API\LessonsController@update');
+            Route::post('update/{id}', 'API\LessonsController@update');
             Route::post('delete/{id}', 'API\LessonsController@delete');
         });
 
         Route::group(['prefix'=> 'student'],function(){
-            Route::post('edit/{id}', 'API\StudentsController@update');
-            Route::post('delete/{id}', 'API\StundentsController@delete');
+            Route::post('update/{id}', 'API\StudentsController@update');
+            Route::post('delete/{id}', 'API\StudentsController@delete');
         });
 
         Route::group(['prefix'=> 'task'],function(){
-            Route::post('edit/{id}', 'API\TasksController@update');
+            Route::post('update/{id}', 'API\TasksController@update');
             Route::post('delete/{id}', 'API\TasksController@delete');
+        });
+        Route::group(['prefix'=> 'user'],function(){
+            Route::post('update/{id}', 'API\UsersController@update');
+            Route::post('delete/{id}', 'API\UsersController@delete');
         });
 
     });
